@@ -1,0 +1,20 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS ads;
+
+
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT UNIQUE NOT NULL,
+    email TEXT UNIQUE,
+    password TEXT NOT NULL
+);
+
+CREATE TABLE ads (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    title TEXT NOT NULL,
+    price INTEGER NOT NULL,
+    status TEXT DEFAULT 'active',
+    description TEXT,
+    image TEXT NOT NULL
+);
